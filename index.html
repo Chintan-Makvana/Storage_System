@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cloud Drive</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Auth View (Login / Register) -->
+  <div id="auth-container" class="card-container">
+    <h2 id="auth-title">Login to Drive</h2>
+    <form id="auth-form">
+      <input type="email" id="auth-email" placeholder="Email" required />
+      <input type="password" id="auth-password" placeholder="Password" required />
+      <button type="submit" id="auth-submit-btn">Login</button>
+    </form>
+    <p class="toggle-auth">
+      <span id="auth-toggle-text">Need an account?</span>
+      <a href="#" id="auth-toggle-btn">Register</a>
+    </p>
+  </div>
+
+  <!-- Drive View (Hidden until logged in) -->
+  <div id="drive-container" class="container" style="display: none;">
+    <header class="drive-header">
+      <span id="user-display"></span>
+      <button id="logout-btn" class="logout-btn">Logout</button>
+    </header>
+
+    <!-- Drop Zone -->
+    <div class="upload-box" id="drop-zone">
+      <svg class="file-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path>
+        <polyline points="13 2 13 9 20 9"></polyline>
+      </svg>
+      <h2 id="drop-text">Drag files here to add them to your account</h2>
+      <p>Or <span class="browse-btn" id="browse-btn">choose your files</span></p>
+      <input type="file" id="file-input" multiple hidden />
+    </div>
+
+    <!-- Staged Files Preview (Before Upload) -->
+    <div id="staged-list-container" class="file-list-container"></div>
+
+    <div class="action-bar" id="action-bar" style="display: none;">
+      <button id="upload-btn" class="upload-btn">Add to Server</button>
+    </div>
+
+    <hr class="divider" />
+
+    <!-- Server Stored Files (User's Drive) -->
+    <section class="uploaded-section">
+      <h3>Your Uploaded Files</h3>
+      <div id="server-file-list" class="file-list-container">
+        <!-- Dynamically loaded -->
+      </div>
+    </section>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
