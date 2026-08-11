@@ -1,4 +1,7 @@
 // --- IndexedDB Configuration for File Storage ---
+// Server API Base URL (Your Localtunnel URL)
+const API_URL = 'https://afraid-wombats-send.loca.lt';
+
 const DB_NAME = 'ClientDriveDB';
 const DB_VERSION = 1;
 const STORE_NAME = 'files';
